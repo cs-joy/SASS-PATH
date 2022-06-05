@@ -1,25 +1,66 @@
-/* normal css varibales
-:root {
-    --primary-color: #272727;
-    --accent-color: #ff652f;
-    --text-color: #fff;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 5;
+  padding: 0;
 }
-*/
+
 body {
   background: #272727;
   color: #fff;
 }
 
 .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.main .main_paragraph1, .main .main_paragraph2 {
+  font-weight: 700;
+}
+
+.main .main_paragraph1:hover, .main .main_paragraph2:hover {
+  color: #1fafc2;
+}
+
+.main .main_paragraph2:hover {
+  color: #ff652f;
+}
+
+@media (max-width: 800px) {
+  .main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.light {
+  background: white;
+  color: black;
+}
+
+.footer {
   width: 80%;
   margin: 0 auto;
 }
 
-.main .main_paragraph {
-  font-weight: 700;
-}
-
-.main .main_paragraph:hover {
-  color: #1fafc2;
+.footer .footer_para {
+  font-weight: 400;
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */

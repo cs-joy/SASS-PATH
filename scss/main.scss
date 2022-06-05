@@ -1,22 +1,30 @@
-/* normal css varibales
-:root {
-    --primary-color: #272727;
-    --accent-color: #ff652f;
-    --text-color: #fff;
+@import './resets';
+@import './variables';
+
+// function
+@function weight($weight-name){
+    @return map-get($font-weights, $weight-name);
 }
-*/
 
-// sass varibales
-$primary-color: #272727;
-$accent-color: #ff652f;
-$text-color: #fff;
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
 
-//map
-$font-weights: (
-    "regular": 400,
-    "medium": 500,
-    "bold": 700
-);
+@mixin theme($light-theme: true){
+    @if $light-theme{
+        background: lighten($primary-color, 100%);
+        color: darken($text-color, 100%);
+    }
+}
+
+@mixin mobile{
+    @media (max-width: $mobile){
+        @content;
+    }
+}
 
 body {
     background: $primary-color;
@@ -25,14 +33,41 @@ body {
 
 //nesting
 .main {
-    width: 80%;
+    @include flexCenter(row);
+    width: 80% - 40%;
     margin: 0 auto;
 
-    #{&}_paragraph {
+    #{&}_paragraph1 {
         font-weight: map-get($font-weights, bold );
 
         &:hover {
             color: #1fafc2;
         }
+    }
+
+    #{&}_paragraph2{
+        @extend .main_paragraph1;
+
+        &:hover {
+            color: $accent-color;
+        }
+    }
+
+    @include mobile{
+        flex-direction: column;
+    }
+}
+
+.light {
+    @include theme($light-theme: true);
+}
+
+.footer {
+    width: 80%;
+    margin: 0 auto;
+
+    #{&}_para {
+        font-weight: weight(regular);
+        text-align: center;
     }
 }
