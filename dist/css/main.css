@@ -1,1 +1,25 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+/* normal css varibales
+:root {
+    --primary-color: #272727;
+    --accent-color: #ff652f;
+    --text-color: #fff;
+}
+*/
+body {
+  background: #272727;
+  color: #fff;
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.main .main_paragraph {
+  font-weight: 700;
+}
+
+.main .main_paragraph:hover {
+  color: #1fafc2;
+}
+/*# sourceMappingURL=main.css.map */
